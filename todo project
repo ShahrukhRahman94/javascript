@@ -6,6 +6,10 @@ const todos = document.querySelector('#todos')
 form.addEventListener('submit',function (e){
 
     e.preventDefault();
+    addtodo();
+
+})
+function addtodo(){
 
     const todoText= input.value;
 
@@ -26,4 +30,6 @@ form.addEventListener('submit',function (e){
 
         input.value= '';
     }
-})
+}
+
+
