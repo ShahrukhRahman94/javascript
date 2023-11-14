@@ -21,15 +21,31 @@ function addtodo(){
 
         todoEl.addEventListener("click",function(){
             todoEl.classList.toggle("completed")
+            updateLS()
         })
 
         todoEl.addEventListener("contextmenu",function(e){
             e.preventDefault();
             todoEl.remove();
+            updateLS()
         })
 
         input.value= '';
     }
 }
 
+function updateLS(){
+    const notesEl = document.querySelectorAll('li');
+    const notes=[]
+
+    notesEl.forEach(notesEl=>{
+        notes.push({
+            text:notesEl.innerText,
+            completed: notesEl.classList.contains("completed")
+
+        })
+    })
+
+    localStorage.setItem('notes',JSON.stringify(notes))
+}
 
