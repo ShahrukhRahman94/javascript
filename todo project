@@ -20,32 +20,33 @@ function addtodo(){
         todos.appendChild(todoEl);
 
         todoEl.addEventListener("click",function(){
-            todoEl.classList.toggle("completed")
-            updateLS()
-        })
+            todoEl.classList.toggle("completed");
+            updateLS();
+        });
 
         todoEl.addEventListener("contextmenu",function(e){
             e.preventDefault();
             todoEl.remove();
-            updateLS()
+           
         })
 
         input.value= '';
+        updateLS()
     }
 }
 
 function updateLS(){
-    const notesEl = document.querySelectorAll('li');
-    const notes=[]
+    const todosEl = document.querySelectorAll('li');
+    const todos=[]
 
-    notesEl.forEach(notesEl=>{
-        notes.push({
-            text:notesEl.innerText,
-            completed: notesEl.classList.contains("completed")
+   todosEl.forEach(todoEl=>{
+       todos.push({
+            text:todoEl.innerText,
+            completed:todoEl.classList.contains("completed")
 
         })
     })
 
-    localStorage.setItem('notes',JSON.stringify(notes))
+    localStorage.setItem('todo',JSON.stringify(todos))
 }
 
