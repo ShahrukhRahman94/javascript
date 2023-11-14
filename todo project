@@ -19,6 +19,11 @@ form.addEventListener('submit',function (e){
             todoEl.classList.toggle("completed")
         })
 
+        todoEl.addEventListener("contextmenu",function(e){
+            e.preventDefault();
+            todoEl.remove();
+        })
+
         input.value= '';
     }
 })
