@@ -14,5 +14,11 @@ form.addEventListener('submit',function (e){
         const todoEl = document.createElement("li");
         todoEl.innerText= todoText;
         todos.appendChild(todoEl);
+
+        todoEl.addEventListener("click",function(){
+            todoEl.classList.toggle("completed")
+        })
+
+        input.value= '';
     }
 })
